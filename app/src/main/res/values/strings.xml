@@ -7,4 +7,7 @@
     <string name="last_date">Last Date</string>
     <string name="status">Status</string>
     <string name="notes">Notes</string>
+    <string name="submit_button">Submit</string>
+    <string name="open_sheets">Open in Sheets</string>
+    <string name="server_client_id">170123164029-5q6s5br2l0h4j8ev54hsu14jk4pt1k7k.apps.googleusercontent.com</string>
 </resources>
