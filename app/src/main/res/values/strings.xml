@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">My Test Application</string>
+    <string name="company_name">Company Name</string>
+    <string name="job_position">Job Position</string>
+    <string name="location">Location</string>
+    <string name="applied_on">Applied On</string>
+    <string name="last_date">Last Date</string>
+    <string name="status">Status</string>
+    <string name="notes">Notes</string>
+</resources>
