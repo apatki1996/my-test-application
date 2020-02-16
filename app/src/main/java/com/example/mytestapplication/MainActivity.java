@@ -10,6 +10,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -47,148 +49,83 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String TAG = "SignInActivity";
-    private static final int RC_SIGN_IN = 9001;
+    Button submitButton;
 
-    public static final String APPLICATION_NAME = "Google Sheets API Java Quickstart";
-    public static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
-    private static final String TOKENS_DIRECTORY_PATH = "tokens";
+    EditText companyNameText, jobPositionText, locationText, statusText, appliedOnText, lastDateText, notesText;
 
-    private static final List<String> SCOPES = Collections.singletonList(SheetsScopes.SPREADSHEETS_READONLY);
-    private static final String CREDENTIALS_FILE_PATH = "/credentials.json";
-
-    private GoogleSignInClient mGoogleSignInClient;
+    JobEntry jobEntry;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        findViewById(R.id.sign_in_button).setOnClickListener(this);
-        findViewById(R.id.submit_button).setOnClickListener(this);
+        submitButton = findViewById(R.id.submit_button);
 
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestScopes(new Scope(Scopes.DRIVE_APPFOLDER))
-                .requestEmail()
-                .build();
+        jobEntry = new JobEntry();
 
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+        companyNameText = findViewById(R.id.companyNameText);
+        jobPositionText = findViewById(R.id.jobPositionText);
+        locationText = findViewById(R.id.locationText);
+        statusText = findViewById(R.id.statusText);
+        appliedOnText = findViewById(R.id.appliedOnText);
+        lastDateText = findViewById(R.id.lastDateText);
+        notesText = findViewById(R.id.notesText);
 
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-
-        // Check if the user is already signed in and all required scopes are granted
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-        if (account != null && GoogleSignIn.hasPermissions(account, new Scope(Scopes.DRIVE_APPFOLDER))) {
-            updateUI(account);
-        } else {
-            updateUI(null);
-        }
-    }
-
-    private void updateUI(@Nullable GoogleSignInAccount account) {
-        if (account != null) {
-//            mStatusTextView.setText(getString(R.string.signed_in_fmt, account.getDisplayName()));
-
-            findViewById(R.id.sign_in_button).setVisibility(View.GONE);
-            findViewById(R.id.submit_button).setVisibility(View.VISIBLE);
-        } else {
-//            mStatusTextView.setText(R.string.signed_out);
-
-            findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
-            findViewById(R.id.submit_button).setVisibility(View.GONE);
-        }
-    }
-
-
-    // [START onActivityResult]
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
-        if (requestCode == RC_SIGN_IN) {
-            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            handleSignInResult(task);
-        }
-    }
-    // [END onActivityResult]
-
-    // [START handleSignInResult]
-    private void handleSignInResult(@Nullable Task<GoogleSignInAccount> completedTask) {
-        Log.d(TAG, "handleSignInResult:" + completedTask.isSuccessful());
-
-        try {
-            // Signed in successfully, show authenticated U
-            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-            updateUI(account);
-        } catch (ApiException e) {
-            // Signed out, show unauthenticated UI.
-            Log.w(TAG, "handleSignInResult:error", e);
-            updateUI(null);
-        }
-    }
-
-    // [START signIn]
-    private void signIn() {
-        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-        startActivityForResult(signInIntent, RC_SIGN_IN);
-    }
-    // [END signIn]
-
-    // [START signOut]
-    private void signOut() {
-        mGoogleSignInClient.signOut().addOnCompleteListener(this, new OnCompleteListener<Void>() {
+        submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                // [START_EXCLUDE]
-                updateUI(null);
-                // [END_EXCLUDE]
+            public void onClick(View v) {
+                String cnText = companyNameText.getText().toString();
+                String jpText = jobPositionText.getText().toString();
+                String lText = locationText.getText().toString();
+                String sText = statusText.getText().toString();
+                String aoText = appliedOnText.getText().toString();
+                String ldText = lastDateText.getText().toString();
+                String nText = notesText.getText().toString();
+
+                if (cnText == null)
+                    jobEntry.setCompanyName("");
+                else
+                    jobEntry.setCompanyName(cnText);
+
+                if (jpText == null)
+                    jobEntry.setJobPosition("");
+                else
+                    jobEntry.setJobPosition(jpText);
+
+                if (lText == null)
+                    jobEntry.setLocation("");
+                else
+                    jobEntry.setLocation(lText);
+
+                if (sText == null)
+                    jobEntry.setStatus("");
+                else
+                    jobEntry.setStatus(sText);
+
+                if (aoText == null)
+                    jobEntry.setAppliedOn("");
+                else
+                    jobEntry.setAppliedOn(aoText);
+
+                if (ldText == null)
+                    jobEntry.setLastDate("");
+                else
+                    jobEntry.setLastDate(ldText);
+
+                if (nText == null)
+                    jobEntry.setNotes("");
+                else
+                    jobEntry.setNotes(nText);
+
+                Log.d("JobEntry", jobEntry.toString());
             }
         });
-        Log.w("SignOut", "signed out");
+
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.sign_in_button:
-                signIn();
-                break;
-            case R.id.submit_button:
-                signOut();
-                break;
-        }
+
     }
-
-    public static Credential getCredentials(final NetHttpTransport HTTP_TRANSPORT) throws IOException {
-        // Load client secrets.
-        InputStream in = MainActivity.class.getResourceAsStream(CREDENTIALS_FILE_PATH);
-        if (in == null) {
-            throw new FileNotFoundException("Resource not found: " + CREDENTIALS_FILE_PATH);
-        }
-        GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
-
-        // Build flow and trigger user authorization request.
-        GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(
-                HTTP_TRANSPORT, JSON_FACTORY, clientSecrets, SCOPES)
-                .setDataStoreFactory(new FileDataStoreFactory(new java.io.File(TOKENS_DIRECTORY_PATH)))
-                .setAccessType("offline")
-                .build();
-        LocalServerReceiver receiver = new LocalServerReceiver.Builder().setPort(8888).build();
-        return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
-    }
-
-
-    public void openWebPage(String url) {
-        Uri webpage = Uri.parse(url);
-        Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
-        }
-    }
-
 }
