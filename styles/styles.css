@@ -1,0 +1,149 @@
+
+
+body{
+    font-family: 'Montserrat';
+}
+
+h3{
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+h2{
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 3rem;
+}
+
+/*Overriding Bootstrap Styles*/
+.container-fluid{
+    padding: 3% 15% 7% /* 3% added to the top and bottom and 15% to the left and the right. 7% to the bottom*/
+}
+
+/*Title Section*/
+#title {
+    background-color: #eb9788;
+    position: relative;
+}
+
+#pageTitle {
+    font-family: 'Montserrat-Black', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1.5;
+    color: white;
+}
+
+.navbar-brand{
+    font-family: 'Ubuntu';
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.navbar {
+    padding: 0 0 4.5rem;
+}
+
+.nav-item{
+    padding: 0 18px;
+}
+
+.nav-link{
+    font-family: 'Montserrat-Light';
+    font-size: 1.2rem;
+}
+
+
+.download-button{
+    margin: 5% 3% 5% 0;
+}
+
+.titleImage{
+    margin-left: 15%;
+    width: 60%;
+    position: relative;
+    left: 25%;
+    bottom: 10px;
+}
+
+
+
+/*FEATURES SECTION*/
+#benefits{
+    background-color: white;
+}
+
+.featureIcon{
+    color: #ef8172;
+    margin-bottom: 1rem;
+}
+
+.featureIcon:hover{
+    color: #ff4c68;
+}
+
+.featureBlock{
+    margin-top: 0px;
+    text-align: center;
+    line-height: 2;
+}
+
+.featureBox{
+    padding: 5%
+}
+
+.featureBox p{
+    color: #8f8f8f;
+}
+
+.featureBox h3{
+    font-family: 'Montserrat';
+    font-size: 1.5rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+
+/*TESTIMONIALS SECTION*/
+#features{
+    text-align: center;
+    background-color: #ef8172;
+    color: #fff;
+}
+
+#testimonials h2{
+    font-family: 'Montserrat';
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.testimonialImage{
+    width: 20%;
+    margin: 20px;
+}
+
+.carousel-item{
+    padding: 7% 15%; /* 7% top and bottom, 15% left and right. Originally applied to the whole section, but they squished the buttons into the carousel, so now making the style more exclusive to let the buttons space out more.*/
+}
+
+
+
+/*PRICING SECTION*/
+#pricing{
+    padding: 100px;
+    text-align: center;
+}
+
+.pricingColumn{
+    padding: 3% 2%;
+}
+
+footer{
+    background-color: #eb9788;
+    font-family: 'Montserrat';
+    color: #fff;
+    padding: 50px;
+    text-align: center;
+}

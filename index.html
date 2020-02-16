@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JAUS</title>
+
+    <!--Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,400,700,900|Ubuntu&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!--Our regular stylesheet-->
+    <link rel="stylesheet" href="styles/styles.css">
+    <!--Font awesome-->
+    <script src="https://kit.fontawesome.com/06dc90f449.js" crossorigin="anonymous"></script>
+    <!--Javascript for Bootstrap  -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<section id="title">
+    <div class="container-fluid">
+        <!-- Nav Bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark" >
+            <a class="navbar-brand" href="#">
+                JAUS
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapseControl" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapseControl">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#benefits">Benefits</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pricing">Subscriptions</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+
+        <!-- Title -->
+        <div class="row">
+            <div class="col-lg-6">
+                <h1 id="pageTitle">Keep yourself updated with the jobs you apply for!</h1>
+                <button type="button" class="btn btn-dark btn-lg download-button"><i class="fab fa-apple"></i> Download</button>
+                <button type="button" class="btn btn-outline-light btn-lg download-button"><i class="fab fa-google-play"></i> Download</button>
+            </div>
+            <div class="col-lg-6">
+                <img class="titleImage" src="images/phone.png" alt="iphone-mockup">
+            </div>
+        </div>
+
+</section>
+
+
+
+<!-- Features -->
+
+<section id="benefits">
+    <div class="container-fluid featureBlock">
+        <div class="row">
+            <div class="featureBox col-lg-4">
+                <i class="fas fa-check-circle fa-4x featureIcon"></i>
+                <h3>Easy to use.</h3>
+                <p>Simple interface for the user to interact with.</p>
+            </div>
+            <div class="featureBox col-lg-4">
+                <i class="fas fa-chart-line fa-4x featureIcon"></i>
+                <h3>More efficient</h3>
+                <p>Incorporates Gmail API to save you time by not sifting through your email every time for results.</p>
+            </div>
+            <div class="featureBox col-lg-4">
+                <i class="far fa-question-circle fa-4x featureIcon"></i>
+                <h3>Hard to forget.</h3>
+                <p>Keeps track of all the companies you've applied to so you don't forget.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Testimonials -->
+
+<section id="features">
+
+    <div id="testimonialCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <h3>User inputs the basic information into the app (Company Name, Job Description, Etc.)</h3>
+                <img class="testimonialImage" src="images/AppScreenshot.jpg" alt="app-image1">
+            </div>
+            <div class="carousel-item">
+                <h3>That information can be instantly transferred to a Google Spreadsheet afterwards with the click of a button.</h3>
+                <img class="testimonialImage" src="images/AppScreenshot2.jpg" alt="app-image2">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#testimonialCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </a>
+        <a class="carousel-control-next" href="#testimonialCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </a>
+    </div>
+
+
+    </div>
+</section>
+
+
+
+<!-- Pricing -->
+
+<section id="pricing">
+
+    <h2>Plans for Job Application Update Services</h2>
+    <p>Pricing plans for extracting your application data.</p>
+
+    <div class="row">
+
+        <div class="pricingColumn col-lg-4 col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Base</h3>
+                </div>
+                <div class="card-body">
+                    <h2>Free</h2>
+                    <p>5 Status Updates per day</p>
+                    <p>Able to update input information</p>
+                    <p>Access to Google Sheets feature</p>
+                    <button class="btn btn-outline-dark" type="button">Sign Up</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="pricingColumn col-lg-4 col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Subscriber</h3>
+                </div>
+                <div class="card-body">
+                    <h2>$2 / mo</h2>
+                    <p>Up to 10 Status Updates per day</p>
+                    <p>Able to update input information</p>
+                    <p>Access to Google Sheets feature</p>
+                    <p>Access to the latest version of the app</p>
+                    <button class="btn btn-dark" type="button">Sign Up</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="pricingColumn col-lg-4">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Premium</h3>
+                </div>
+                <div class="card-body">
+                    <h2>$4 / mo</h2>
+                    <p>Information stored in a database instead of google sheets</p>
+                    <p>Unlimited Updates</p>
+                    <p>Able to update input information</p>
+                    <p>Access to Google Sheets feature</p>
+                    <p>Access to the latest version of the app</p>
+                    <button class="btn btn-dark" type="button">Sign Up</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+</section>
+
+
+
+
+<!-- Footer -->
+
+<footer id="footer">
+
+    <p>© Copyright 2019 Java Application Update Services</p>
+
+</footer>
+
+
+</body>
+
+</html>
